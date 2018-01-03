@@ -6,6 +6,7 @@ const favicon = require('serve-favicon')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -18,9 +19,7 @@ app.set('view engine', 'hbs')
 
 // Connect DB
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGODB_URI, {
-  useMongoClient: true
-})
+mongoose.connect(process.env.MONGODB_URI)
 
 mongoose.connection.once('open', () => {
   console.log('Mongoose has connected to MongoDB!')

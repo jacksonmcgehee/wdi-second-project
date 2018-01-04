@@ -52,7 +52,8 @@ const UserSchema = new Schema(
     {
         userName: {
             type: String,
-            required: [true, 'This is required. We need to know what to call you.']
+            required: [true, 'This is required. We need to know what to call you.'],
+            unique: [true, 'There is already someone with that user name.']
         },
         firstName: {
             type: String,

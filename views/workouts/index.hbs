@@ -6,8 +6,8 @@
     <div>
         {{#each user}}
             {{#each workoutsCreated}}
-            {{!-- <a href="/workouts/{{this._id}}"></a> --}}
-                <h3>{{this.workoutName}}</h3>
+            <a href="/users/{{../_id}}/workouts/{{this._id}}"><h3>{{this.workoutName}}</h3></a>
+                
             {{/each}}
         {{/each}}
     </div>

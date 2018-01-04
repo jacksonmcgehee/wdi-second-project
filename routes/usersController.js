@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../db/models/User.js')
+const Workout = require('../db/models/Workout')
 
 
 router.get('/', (req, res) => {
@@ -43,13 +44,27 @@ router.get('/workouts', (req, res) => {
   })
 })
 
+router.get('/workouts/:workoutId', (req, res) => {
+  const workoutId = req.params.workoutId
+  Workout.findById(workoutId)
+      .then((workout) => {
+          res.render('workouts/show', {
+              workout
+          })
+      })
+      .catch((error) => {
+          console.log(error)
+      })
+})
+
 router.get('/:userId', (req, res) => {
   const userId = req.params.userId
   
   User.findById(userId)
     .then((user) => {
       res.render('users/show', {
-        user
+        user,
+        userId
       })
     })
     .catch((error) => {

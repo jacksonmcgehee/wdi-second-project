@@ -8,8 +8,11 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
+
+// Setting the variables for my controllers
 const indexController = require('./routes/indexController.js')
 const usersController = require('./routes/usersController.js')
+const workoutsController = require('./routes/workoutsController.js')
 
 const app = express()
 
@@ -41,8 +44,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
+// Use the controllers
 app.use('/', indexController)
 app.use('/users', usersController)
+app.use('/workouts', workoutsController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

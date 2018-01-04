@@ -1,0 +1,21 @@
+<div>
+    <a href="/"><h1>Fitbrary</h1></a>
+    <h2>Users Library</h2>
+</div>
+<div>
+    <div>
+        {{#each user}}
+            <a href="/users/{{this._id}}"><h3>{{this.userName}}</h3></a></li>
+        {{/each}}
+    </div>
+
+    <div>
+        <form action="/users/new">
+            <input class="button" type="submit" value="New User" />
+        </form>
+        <form action="/workouts">
+            <input class="button" type="submit" value="Workout Library" />
+        </form>
+    </div>
+    
+</div>

@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router({ mergeParams: true })
 const User = require('../db/models/User.js')
-//const Workout = require('../db/models/Workout')
+const Workout = require('../db/models/Workout')
 
 // router.get('/', (req, res) => {
 //     User.find({})
@@ -47,28 +47,32 @@ router.get('/:workoutId', (req, res) => {
         })
 })
 
-// router.get('/:workoutId/edit', (req, res) => {
-//     const workoutId = req.params.workoutId
-//     Workout.findById(workoutId)
-//         .then((workout) => {
-//             res.render('workouts/edit', {
-//                 workout
-//             })
-//         })
-//         .catch((error) => {
-//             consoole.log(error)
-//         })
-// })
+router.get('/:workoutId/edit', (req, res) => {
+    const workoutId = req.params.workoutId
+    const userId = req.params.userId
+    User.findById(userId)
+        .then((user) => {
+            const workout = user.workoutsCreated.id(workoutId)
+            res.render('workouts/edit', {
+                user,
+                workout
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
-// router.put('/:workoutId', (req, res) => {
-//     const workoutId = req.params.workoutId
-//     const updatedWorkout = req.body
+router.put('/:workoutId', (req, res) => {
+    const workoutId = req.params.workoutId
+    const userId = req.params.userId
+    const updatedWorkout = req.body
 
-//     Workout.findByIdAndUpdate(workoutId, updatedWorkout, {new: true})
-//         .then(() => {
-//             res.redirect(`/workouts/${workoutId}`)
-//         })
-// })
+    Workout.findByIdAndUpdate(workoutId, updatedWorkout, {new: true})
+        .then(() => {
+            res.redirect(`/users/${userId}/workouts/${workoutId}`)
+        })
+})
 
 // router.get('/:workoutId/delete', (req, res) => {
 //     const workoutId = req.params.workoutId

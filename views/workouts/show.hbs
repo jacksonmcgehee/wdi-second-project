@@ -4,9 +4,9 @@
 
 <div>
     <h1>{{workout.workoutName}}</h1>
-    {{!-- <h2>Created by: {{user.userName}}</h2>
+    <h2>Created by: {{user.userName}}</h2>
     <h3>Workout goal: {{workout.goal}}</h3>
-    <h3>Workout description: {{workout.description}}</h3>
+    <h3>Workout notes: {{workout.notes}}</h3>
     <div>
         <h3>Workout Components:</h3>
         <ul>
@@ -18,7 +18,7 @@
 
 
     <div>
-        <form action="/workouts/{{workout._id}}/edit">
+        <form action="/users/{{user._id}}/workouts/{{workout._id}}/edit">
             <input class="button" type="submit" value="Edit Workout Details" />
         </form>
         <form action="/workouts/{{workout._id}}/components">
@@ -27,11 +27,11 @@
     </div>
 
     <div>
-        <form action="/workouts">
+        <form action="/users/workouts">
             <input class="button" type="submit" value="Workout Library" />
         </form>
         <form action="/workouts/{{workout._id}}/delete">
             <input class="button" type="submit" value="Delete Workout" />
         </form>
-    </div> --}}
+    </div>
 </div>

@@ -34,7 +34,7 @@ User.remove({})
             workoutName: 'Puddle Butter',
             //createdBy: 'Calf raise AF',
             goal: '20 minute AMRAP',
-            description: 'Use strict pull ups for as long as possible'
+            notes: 'Use strict pull ups for as long as possible'
         })
         const com1 = new Component({
             movement: 'Burpees',
@@ -64,7 +64,7 @@ User.remove({})
             workoutName: 'Booger Slinger',
             //createdBy: 'Da Shrug Boss',
             goal: '8 Rounds for time',
-            description: 'Time is important, but form is paramount'
+            notes: 'Time is important, but form is paramount'
         })
         const com4 = new Component({
             movement: 'Box Jumps',
@@ -88,8 +88,30 @@ User.remove({})
             movement: 'Toes-to-Bar',
             repetitions: '8'
         })
+        const weaknessFilter = new Workout({
+            workoutName: 'Weakness Filter',
+            goal: '6 rounds for time',
+        })
+        const com9 = new Component({
+            movement: 'Run',
+            repetitions: '800 meters'
+        })
+        const com10 = new Component({
+            movement: 'Thrusters',
+            repetitions: '10',
+            prescribed: '95 lbs'
+        })
+        const com11 = new Component({
+            movement: 'Flutter Kicks',
+            repetitions: '25'
+        })
+        const com12 = new Component({
+            movement: 'Slam Ball',
+            repetitions: '15'
+        })
         boogerSlinger.workoutComponent.push(com4, com5, com6, com7, com8)
-        franz.workoutsCreated.push(boogerSlinger)
+        weaknessFilter.workoutComponent.push(com9, com10, com11, com12)
+        franz.workoutsCreated.push(boogerSlinger, weaknessFilter)
         
         return franz.save()
     }).catch((error) => {

@@ -32,7 +32,7 @@ const WorkoutSchema = new Schema(
             type: String,
             required: [true, 'We need a goal: time, reps, rounds, etc.']
         },
-        description: {
+        notes: {
             type: String,
         },
         workoutComponent: [ComponentSchema]

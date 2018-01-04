@@ -1,18 +1,14 @@
 <div>
     <a href="/"><h1>Fitbrary</h1></a>
     <h2>Edit {{workout.workoutName}}</h2>
+    <p>Created by: {{user.userName}}</p>
 </div>
 <div>
-    <form class="new-form"action='/workouts/{{workout._id}}?_method=PUT' method="POST">
+    <form class="new-form"action='/users/{{user._id}}/workouts/{{workout._id}}?_method=PUT' method="POST">
         <div>
             <div class="form-input">
                 <label for="workoutName">Name of the workout</label>
                 <input type="text" name="workoutName" value="{{workout.workoutName}}" required/>
-            </div>
-
-            <div class="form-input">
-                <label for="createdBy">Created By</label>
-                <input type="text" name="createdBy" value="{{workout.createdBy}}" required/>
             </div>
 
             <div class="form-input">
@@ -21,8 +17,8 @@
             </div>
 
             <div class="form-input">
-                <label for="description">Description</label>
-                <input type="text" name="description" value="{{workout.description}}" />
+                <label for="notes">Notes</label>
+                <input type="text" name="notes" value="{{workout.notes}}" />
             </div>
         </div>
 
@@ -32,7 +28,7 @@
         </div>
     </form>
     <div>
-        <form action="/workouts">
+        <form action="/users/{{user._id}}/workouts/{{workout._id}}">
             <input class="button" type="submit" value="Cancel" />
         </form>
     </div>

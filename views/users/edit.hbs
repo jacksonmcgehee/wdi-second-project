@@ -1,0 +1,38 @@
+<div>
+    <a href="/"><h1>Fitbrary</h1></a>
+    <h2>Edit {{user.userName}}'s Profile</h2>
+</div>    
+    <div>
+        <form class="new-form"action='/users/{{user._id}}?_method=PUT' method="POST">
+            <div class="form-input">
+                <label for="userName">User name</label>
+                <input type="text" name="userName" value="{{user.userName}}" required/>
+            </div>
+
+            <div class="form-input">
+                <label for="firstName">First name</label>
+                <input type="text" name="firstName" value="{{user.firstName}}" required/>
+            </div>
+
+            <div class="form-input">
+                <label for="lastName">Last name</label>
+                <input type="text" name="lastName" value="{{user.lastName}}" required/>
+            </div>
+
+            
+
+            <div class="form-input">
+                <label for="email">Email</label>
+                <input type="text" name="email" value="{{user.email}}" />
+            </div>
+
+            <div class="">
+                <input class="button" type="submit" value="Update Profile">
+            </div>
+        </form>
+    </div>
+    <div>
+        <form action="/users">
+            <input class="button" type="submit" value="Cancel" />
+        </form>
+    </div>

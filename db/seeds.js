@@ -1,5 +1,7 @@
+require('dotenv').config()
+
 const User = require('./models/User.js')
-const WorkOut = require('./models/Workout.js')
+const Workout = require('./models/Workout.js')
 const Component = require('./models/Component.js')
 const mongoose = require('mongoose')
 
@@ -40,7 +42,7 @@ User.remove({})
             email: 'louismyhero@yahoo.com'
         })
     }).then(() => {
-        const puddleButter = new WorkOut({
+        const puddleButter = new Workout({
             workoutName: 'Puddle Butter',
             createdBy: 'Calf raise AF',
             goal: '20 minute AMRAP',
@@ -63,7 +65,7 @@ User.remove({})
 
         return puddleButter.save()
     }).then(() => {
-        const boogerSlinger = new WorkOut({
+        const boogerSlinger = new Workout({
             workoutName: 'Booger Slinger',
             createdBy: 'Da Shrug Boss',
             goal: '8 Rounds for time',

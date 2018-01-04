@@ -43,6 +43,29 @@ router.get('/:workoutId', (req, res) => {
         })
 })
 
+router.get('/:workoutId/edit', (req, res) => {
+    const workoutId = req.params.workoutId
+    Workout.findById(workoutId)
+        .then((workout) => {
+            res.render('workouts/edit', {
+                workout
+            })
+        })
+        .catch((error) => {
+            consoole.log(error)
+        })
+})
+
+router.put('/:workoutId', (req, res) => {
+    const workoutId = req.params.workoutId
+    const updatedWorkout = req.body
+
+    Workout.findByIdAndUpdate(workoutId, updatedWorkout, {new: true})
+        .then(() => {
+            res.redirect(`/workouts/${workoutId}`)
+        })
+})
+
 router.get('/:workoutId/delete', (req, res) => {
     const workoutId = req.params.workoutId
     Workout.findByIdAndRemove(workoutId)

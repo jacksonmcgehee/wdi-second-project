@@ -16,6 +16,10 @@ const workoutsController = require('./routes/workoutsController')
 
 const app = express()
 
+//Configuring for input method override
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'))
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')

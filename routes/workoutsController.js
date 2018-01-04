@@ -14,6 +14,23 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/new', (req, res) => {
+    res.render('workouts/new')
+})
+
+router.get('/:workoutId', (req, res) => {
+    const workoutId = req.params.workoutId
+    Workout.findById(workoutId)
+        .then((workout) => {
+            res.render('workouts/show', {
+                workout
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
+
 
 
 

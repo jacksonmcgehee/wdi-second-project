@@ -1,0 +1,37 @@
+<div>
+    <a href="/"><h1>Fitbrary</h1></a>
+</div>
+
+<div>
+    <h1>{{workout.workoutName}}</h1>
+    <h2>Created by: {{workout.createdBy}}</h2>
+    <h3>Workout goal: {{workout.goal}}</h3>
+    <h3>Workout description: {{workout.description}}</h3>
+    <div>
+        <h3>Workout Components:</h3>
+        <ul>
+            {{#each workout.workoutComponent}}
+                <li> {{this.repetitions}} {{this.movement}} {{#if this.prescribed}}at {{this.prescribed}}{{/if}}</li>
+            {{/each}}
+        </ul>
+    </div>
+
+
+    <div>
+        <form action="/workouts/{{workout._id}}/edit">
+            <input class="button" type="submit" value="Edit Workout Details" />
+        </form>
+        <form action="/workouts/{{workout._id}}/components">
+            <input class="button" type="submit" value="Edit Components" />
+        </form>
+    </div>
+
+    <div>
+        <form action="/workouts">
+            <input class="button" type="submit" value="Workout Library" />
+        </form>
+        <form action="/workouts/{{workout._id}}/delete">
+            <input class="button" type="submit" value="Delete Workout" />
+        </form>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div>
+    <a href="/"><h1>Fitbrary</h1></a>
+</div>
+
+<div>
+    <h1>{{user.userName}}</h1>
+    <h3>Name: {{user.firstName}} {{user.lastName}}</h3>
+    <h3>Email: {{user.email}}</h3>
+    <div>
+        <h3>Workouts Created:</h3>
+        {{!-- <ul>
+            {{#each workout.workoutComponent}}
+                <li> {{this.repetitions}} {{this.movement}} {{#if this.prescribed}}at {{this.prescribed}}{{/if}}</li>
+            {{/each}}
+        </ul> --}}
+    </div>
+
+
+    <div>
+        <form action="/users/{{user._id}}/edit">
+            <input class="button" type="submit" value="Edit User Details" />
+        </form>
+    </div>
+
+    <div>
+        <form action="/users">
+            <input class="button" type="submit" value="User Library" />
+        </form>
+        <form action="/users/{{user._id}}/delete">
+            <input class="button" type="submit" value="Delete User" />
+        </form>
+    </div>
+</div>

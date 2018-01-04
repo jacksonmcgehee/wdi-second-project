@@ -15,4 +15,18 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/:userId', (req, res) => {
+  const userId = req.params.userId
+  
+  User.findById(userId)
+    .then((user) => {
+      res.render('users/show', {
+        user
+      })
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+})
+
 module.exports = router

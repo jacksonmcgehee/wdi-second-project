@@ -8,11 +8,13 @@
     <h3>Email: {{user.email}}</h3>
     <div>
         <h3>Workouts Created:</h3>
-        {{!-- <ul>
-            {{#each workout.workoutComponent}}
-                <li> {{this.repetitions}} {{this.movement}} {{#if this.prescribed}}at {{this.prescribed}}{{/if}}</li>
+        <div>
+            {{#if user.workoutsCreated}}
+            {{#each user.workoutsCreated}}
+                <h3> {{this.workoutName}}</h3>
             {{/each}}
-        </ul> --}}
+            {{/if}}
+        </div>
     </div>
 
 

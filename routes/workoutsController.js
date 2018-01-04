@@ -1,5 +1,5 @@
 const express = require('express')
-const router = express.Router()
+const router = express.Router({ mergeParams: true })
 const Workout = require('../db/models/Workout.js')
 
 router.get('/', (req, res) => {

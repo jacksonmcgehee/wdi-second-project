@@ -28,10 +28,6 @@ const WorkoutSchema = new Schema(
             type: String,
             required: [true, 'What should we call this?']
         },
-        createdBy: {
-            type: String,
-            required: [true, 'We want to know who to thank for this workout.']
-        },
         goal: {
             type: String,
             required: [true, 'We need a goal: time, reps, rounds, etc.']
@@ -71,10 +67,12 @@ const UserSchema = new Schema(
         },
         userInstagram: {
             type: String
-        }
+        },
+        workoutsCreated: [WorkoutSchema]
     },
     {
-        timestamps: {}
+        timestamps: {},
+        usePushEach : true
     }
 )
 

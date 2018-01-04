@@ -24,27 +24,15 @@ mongoose.connection.on('error', (error) => {
 // Clear DB and plant fresh seeds
 User.remove({})
     .then(() => {
-        return Workout.remove({})
-    })
-    .then(() => {
         const hanz = new User({
-            userName: 'Calf raise AF',
+            userName: 'Calf Raise AF',
             firstName: 'Hanz',
             lastName: 'Bjorgensen',
             email: 'arnoldisking@hotmail.com'
         })
-        return hanz.save()
-    }).then(() => {
-        return User.create({
-            userName: 'Da Shrug Boss',
-            firstName: 'Franz',
-            lastName: 'Bjorgensen',
-            email: 'louismyhero@yahoo.com'
-        })
-    }).then(() => {
         const puddleButter = new Workout({
             workoutName: 'Puddle Butter',
-            createdBy: 'Calf raise AF',
+            //createdBy: 'Calf raise AF',
             goal: '20 minute AMRAP',
             description: 'Use strict pull ups for as long as possible'
         })
@@ -62,12 +50,19 @@ User.remove({})
             prescribed: '155 lbs'
         })
         puddleButter.workoutComponent.push(com1, com2, com3)
+        hanz.workoutsCreated.push(puddleButter)
 
-        return puddleButter.save()
+        return hanz.save()
     }).then(() => {
+        const franz = new User({
+            userName: 'Da Shrug Boss',
+            firstName: 'Franz',
+            lastName: 'Bjorgensen',
+            email: 'louismyhero@yahoo.com'
+        })
         const boogerSlinger = new Workout({
             workoutName: 'Booger Slinger',
-            createdBy: 'Da Shrug Boss',
+            //createdBy: 'Da Shrug Boss',
             goal: '8 Rounds for time',
             description: 'Time is important, but form is paramount'
         })
@@ -94,8 +89,9 @@ User.remove({})
             repetitions: '8'
         })
         boogerSlinger.workoutComponent.push(com4, com5, com6, com7, com8)
-
-        return boogerSlinger.save()
+        franz.workoutsCreated.push(boogerSlinger)
+        
+        return franz.save()
     }).catch((error) => {
         console.log('!!!!! ERROR SAVING SEEDED DATA !!!!!')
         console.log(error)

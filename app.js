@@ -10,9 +10,9 @@ const mongoose = require('mongoose')
 
 
 // Setting the variables for my controllers
-const indexController = require('./routes/indexController.js')
-const usersController = require('./routes/usersController.js')
-const workoutsController = require('./routes/workoutsController.js')
+const indexController = require('./routes/indexController')
+const usersController = require('./routes/usersController')
+const workoutsController = require('./routes/workoutsController')
 
 const app = express()
 

@@ -31,6 +31,18 @@ router.post('/', (req, res) => {
     })
 })
 
+router.get('/workouts', (req, res) => {
+  User.find({})
+  .then((user) => {
+      res.render('workouts/index', {
+          user
+      })
+  })
+  .catch((error) => {
+      console.log(error)
+  })
+})
+
 router.get('/:userId', (req, res) => {
   const userId = req.params.userId
   

@@ -4,8 +4,11 @@
 </div>
 <div>
     <div>
-        {{#each workout}}
-            <a href="/workouts/{{this._id}}"><h3>{{this.workoutName}}</h3></a></li>
+        {{#each user}}
+            {{#each workoutsCreated}}
+            {{!-- <a href="/workouts/{{this._id}}"></a> --}}
+                <h3>{{this.workoutName}}</h3>
+            {{/each}}
         {{/each}}
     </div>
 

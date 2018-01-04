@@ -15,9 +15,18 @@ const Workout = require('../db/models/Workout')
 //     })
 // })
 
-// router.get('/new', (req, res) => {
-//     res.render('workouts/new')
-// })
+router.get('/new', (req, res) => {
+    const userId = req.params.userId
+    User.findById(userId)
+        .then((user) => {
+            res.render('workouts/new', {
+                user
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 // router.post('/', (req, res) => {
 //     const newWorkout = req.body
@@ -68,10 +77,18 @@ router.put('/:workoutId', (req, res) => {
     const userId = req.params.userId
     const updatedWorkout = req.body
 
-    Workout.findByIdAndUpdate(workoutId, updatedWorkout, {new: true})
-        .then(() => {
-            res.redirect(`/users/${userId}/workouts/${workoutId}`)
-        })
+    User.findByIdAndUpdate(userId)
+    .then((user) => {
+        user.workoutsCreated.push(updatedWorkout)
+        
+        
+    })
+    .then(() => {
+        res.redirect(`/users/${userId}/workouts/${workoutId}`)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
 })
 
 // router.get('/:workoutId/delete', (req, res) => {

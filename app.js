@@ -10,7 +10,7 @@ const mongoose = require('mongoose')
 
 
 // Setting the variables for my controllers
-const indexController = require('./routes/indexController')
+const index = require('./routes/index')
 const usersController = require('./routes/usersController')
 const workoutsController = require('./routes/workoutsController')
 
@@ -45,7 +45,7 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 // Use the controllers
-app.use('/', indexController)
+app.use('/', index)
 app.use('/users', usersController)
 app.use('/workouts', workoutsController)
 

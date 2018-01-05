@@ -46,30 +46,32 @@ router.post('/', (req, res) => {
             
         })
         .then(() => {
-            res.redirect(`/user/${userId}/workouts/${workoutId}/components`)
+            res.redirect(`/users/${userId}/workouts/${workoutId}/components`)
         })
         .catch((error) => {
             console.log(error)
         })
 })
 
-// router.get('/:componentId/delete', (req, res) => {
-//     const workoutId = req.params.workoutId
-//     const componentId = req.params.componentId
-//     // console.log(`workoutId: ${workoutId}`)
-//     // console.log(`componentId: ${componentId}`)
+router.get('/:componentId/delete', (req, res) => {
+    const userId = req.params.userId
+    const workoutId = req.params.workoutId
+    const componentId = req.params.componentId
+    // console.log(`workoutId: ${workoutId}`)
+    // console.log(`componentId: ${componentId}`)
 
-//     WorkOut.findById(workoutId)
-//         .then((workout) => {
-//             workout.workOutComponent.id(componentId).remove()
-//             return workout.save()
-//         })
-//         .then(() => {
-//             res.redirect(`/workouts/${workoutId}/components`)
-//         })
-//         .catch((error) => {
-//             console.log(error)
-//         })
-// })
+    User.findById(userId)
+        .then((user) => {
+            const workout = user.workoutsCreated.id(workoutId)
+            workout.workoutComponent.id(componentId).remove()
+            return user.save()
+        })
+        .then(() => {
+            res.redirect(`/users/${userId}/workouts/${workoutId}/components`)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 module.exports = router

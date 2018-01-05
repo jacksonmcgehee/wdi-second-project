@@ -4,11 +4,11 @@ const User = require('../db/models/User.js')
 const Workout = require('../db/models/Workout')
 const Component = require('../db/models/Component')
 
-
+// (Read) Populate a view of all the components of a specific workout
 router.get('/', (req, res) => {
     const userId = req.params.userId
     const workoutId = req.params.workoutId
-    //console.log(workoutId)
+   
     User.findById(userId)
         .then((user) => {
             const workout = user.workoutsCreated.id(workoutId)
@@ -20,19 +20,7 @@ router.get('/', (req, res) => {
         })
 })
 
-// router.get('/new', (req, res) => {
-//     const userId = req.params.userId
-//     const workoutId = req.params.workoutId
-
-//     User.findById(userId)
-//         .then((user) => {
-//             const component = workout.workoutComponent.id()
-//                res.render('components/new', {
-//                 workout
-//             })
-//         })
-// })
-
+// (Create) Add a new componet to a specific workout based on app user input
 router.post('/', (req, res) => {
     const userId = req.params.userId
     const workoutId = req.params.workoutId
@@ -53,13 +41,12 @@ router.post('/', (req, res) => {
         })
 })
 
+// (Destroy) Delete a specific component of a specific workout
 router.get('/:componentId/delete', (req, res) => {
     const userId = req.params.userId
     const workoutId = req.params.workoutId
     const componentId = req.params.componentId
-    // console.log(`workoutId: ${workoutId}`)
-    // console.log(`componentId: ${componentId}`)
-
+   
     User.findById(userId)
         .then((user) => {
             const workout = user.workoutsCreated.id(workoutId)

@@ -1,0 +1,32 @@
+<div>
+    <a href="/"><h1>Fitbrary</h1></a>
+    <h1>Components for {{}}</h1>
+</div>
+<div>
+    <ul>
+        {{#each workout.workOutComponent}}
+            <li> {{this.repetitions}} {{this.movement}} {{#if this.prescribed}}at {{this.prescribed}}{{/if}}</li>
+            <a href="/workouts/{{../workout._id}}/components/{{this._id}}/delete">Delete this component</a>
+        {{/each}}
+    </ul>
+</div>
+
+<div class="form-input">
+    <form class="new-form"action='/workouts/{{workout._id}}/components' method="POST">
+    <div>
+        <label for="repetitions">Repetitions</label>
+        <input type="text" name="repetitions" required/>
+    </div>
+    <div>
+        <label for="movement">Movement</label>
+        <input type="text" name="movement" required/>
+    </div>
+    <div>
+        <label for="prescribed">Recommended weight</label>
+        <input type="text" name="prescribed" />
+    </div>
+    <div>
+        <input class="button" type="submit" value="Add Component">
+    </div>
+    </form>
+</div>

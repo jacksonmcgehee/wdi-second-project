@@ -6,44 +6,52 @@ const Component = require('../db/models/Component')
 
 
 router.get('/', (req, res) => {
+    const userId = req.params.userId
     const workoutId = req.params.workoutId
     //console.log(workoutId)
-    WorkOut.findById(workoutId)
-        .then((workout) => {
+    User.findById(userId)
+        .then((user) => {
+            const workout = user.workoutsCreated.id(workoutId)
+            
             res.render('components/index', {
-                workout
+                workout, 
+                user
             })
         })
 })
 
 // router.get('/new', (req, res) => {
+//     const userId = req.params.userId
 //     const workoutId = req.params.workoutId
 
-//     WorkOut.findById(workoutId)
-//         .then((workout) => {
-//             res.render('components/new', {
+//     User.findById(userId)
+//         .then((user) => {
+//             const component = workout.workoutComponent.id()
+//                res.render('components/new', {
 //                 workout
 //             })
 //         })
 // })
 
-// router.post('/', (req, res) => {
-//     const workoutId = req.params.workoutId
-//     const newComponent = req.body
+router.post('/', (req, res) => {
+    const userId = req.params.userId
+    const workoutId = req.params.workoutId
+    const newComponent = req.body
 
-//     WorkOut.findById(workoutId)
-//         .then((workout) => {
-//             workout.workOutComponent.push(newComponent)
-//             return workout.save()
+    User.findById(userId)
+        .then((user) => {
+            const workout = user.workoutsCreated.id(workoutId)
+            workout.workoutComponent.push(newComponent)
+            return user.save()
             
-//         })
-//         .then(() => {
-//             res.redirect(`/workouts/${workoutId}/components`)
-//         })
-//         .catch((error) => {
-//             console.log(error)
-//         })
-// })
+        })
+        .then(() => {
+            res.redirect(`/user/${userId}/workouts/${workoutId}/components`)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 // router.get('/:componentId/delete', (req, res) => {
 //     const workoutId = req.params.workoutId

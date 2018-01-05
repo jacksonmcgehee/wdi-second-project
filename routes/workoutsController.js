@@ -3,46 +3,29 @@ const router = express.Router({ mergeParams: true })
 const User = require('../db/models/User.js')
 const Workout = require('../db/models/Workout')
 
-// router.get('/', (req, res) => {
-//     User.find({})
-//     .then((user) => {
-//         res.render('workouts/index', {
-//             user
-//         })
-//     })
-//     .catch((error) => {
-//         console.log(error)
-//     })
-// })
 
-// router.post('/', (req, res) => {
-//     const workoutId = req.params.workoutId
-//     const userId = req.params.userId
-//     const newWorkout = req.body
-
-//     User.findById(userId)
-//         .then((user) => {
-//             user.workoutsCreated.push(newWorkout)
-//             return userId.save()
-//         })
-//         .then(() => {
-//             res.redirect(`/users/${userId}/workouts`)
-//         })
-//         .catch((error) => {
-//             console.log(error)
-//         })
-// })
-
-router.get('/:workoutId', (req, res) => {
-    const workoutId = req.params.workoutId
+router.get('/newworkout', (req, res) => {
     const userId = req.params.userId
     User.findById(userId)
+    .then((user) => {
+      res.render('workouts/new', {
+        user
+      })
+    })
+  })
+
+router.post('/', (req, res) => {
+    const workoutId = req.params.workoutId
+    const userId = req.params.userId
+    const newWorkout = req.body
+
+    User.findById(userId)
         .then((user) => {
-            const workout = user.workoutsCreated.id(workoutId)
-            res.render('workouts/show', {
-                user,
-                workout
-            })
+            user.workoutsCreated.push(newWorkout)
+            return user.save()
+        })
+        .then(() => {
+            res.redirect(`/users/${userId}`)
         })
         .catch((error) => {
             console.log(error)
@@ -97,14 +80,28 @@ router.get('/:workoutId/delete', (req, res) => {
             return user.save()
         })
         .then((user) => {
-            res.redirect(`/users/workouts`)
+            res.redirect(`/users/${userId}`)
         })
         .catch((error) => {
             console.log(error)
         })
 })
 
-
+router.get('/:workoutId', (req, res) => {
+    const workoutId = req.params.workoutId
+    const userId = req.params.userId
+    User.findById(userId)
+        .then((user) => {
+            const workout = user.workoutsCreated.id(workoutId)
+            res.render('workouts/show', {
+                workout,
+                user
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+  })
 
 
 

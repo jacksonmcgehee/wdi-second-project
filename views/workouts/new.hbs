@@ -1,18 +1,14 @@
 <div>
     <a href="/"><h1>Fitbrary</h1></a>
-    <h2>Make a New Workout</h2>
+    <h2>{{user.userName}}, make a new workout</h2>
+
 </div>
 <div>
-    <form class="new-form" action="/users/{{user._id}}" method="POST">
+    <form class="new-form" action="/users/{{user._id}}/workouts" method="POST">
         <div>
             <div class="form-input">
                 <label for="workoutName">Name of the workout</label>
                 <input type="text" name="workoutName" required/>
-            </div>
-
-            <div class="form-input">
-                <label for="createdBy">Created By</label>
-                <input type="text" name="createdBy" required/>
             </div>
 
             <div class="form-input">
@@ -32,7 +28,7 @@
         </div>
     </form>
     <div>
-        <form action="/workouts">
+        <form action="/users/{{user._id}}">
             <input class="button" type="submit" value="Cancel" />
         </form>
     </div>

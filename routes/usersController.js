@@ -32,6 +32,16 @@ router.post('/', (req, res) => {
     })
 })
 
+// router.get('/:userId/newworkout', (req, res) => {
+//   const userId = req.params.userId
+//   User.findById(userId)
+//   .then((user) => {
+//     res.render('workouts/new', {
+//       user
+//     })
+//   })
+// })
+
 router.get('/workouts', (req, res) => {
   User.find({})
   .then((user) => {
@@ -44,22 +54,9 @@ router.get('/workouts', (req, res) => {
   })
 })
 
-router.get('/workouts/:workoutId', (req, res) => {
-  const workoutId = req.params.workoutId
-  Workout.findById(workoutId)
-      .then((workout) => {
-          res.render('workouts/show', {
-              workout
-          })
-      })
-      .catch((error) => {
-          console.log(error)
-      })
-})
 
-// router.get('/workouts/new', (req, res) => {
-//   res.render('workouts/new')
-// })
+
+
 
 // router.post('/', (req, res) => {
 //     const newWorkout = req.body

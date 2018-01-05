@@ -3,7 +3,7 @@ const router = express.Router({ mergeParams: true })
 const User = require('../db/models/User.js')
 const Workout = require('../db/models/Workout')
 
-
+// (Read) Provide a way to input info for a new workout
 router.get('/newworkout', (req, res) => {
     const userId = req.params.userId
     User.findById(userId)
@@ -14,6 +14,7 @@ router.get('/newworkout', (req, res) => {
     })
   })
 
+// (Create) Add a new workout to a user based on app user input
 router.post('/', (req, res) => {
     const workoutId = req.params.workoutId
     const userId = req.params.userId
@@ -32,6 +33,7 @@ router.post('/', (req, res) => {
         })
 })
 
+// (Read) Provide a way for the app user to change info about an individual workout
 router.get('/:workoutId/edit', (req, res) => {
     const workoutId = req.params.workoutId
     const userId = req.params.userId
@@ -48,6 +50,7 @@ router.get('/:workoutId/edit', (req, res) => {
         })
 })
 
+// (Update) Change existing workout based on app user input
 router.put('/:workoutId', (req, res) => {
     const workoutId = req.params.workoutId
     const userId = req.params.userId
@@ -71,6 +74,7 @@ router.put('/:workoutId', (req, res) => {
     })
 })
 
+// (Destroy) Delete a specific workout
 router.get('/:workoutId/delete', (req, res) => {
     const workoutId = req.params.workoutId
     const userId = req.params.userId
@@ -87,6 +91,7 @@ router.get('/:workoutId/delete', (req, res) => {
         })
 })
 
+// (Read) Show the details of an individual workout
 router.get('/:workoutId', (req, res) => {
     const workoutId = req.params.workoutId
     const userId = req.params.userId

@@ -57,6 +57,8 @@ router.get('/workouts/:workoutId', (req, res) => {
       })
 })
 
+
+
 router.get('/:userId', (req, res) => {
   const userId = req.params.userId
   

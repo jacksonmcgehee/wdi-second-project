@@ -16,16 +16,7 @@ const Workout = require('../db/models/Workout')
 // })
 
 router.get('/new', (req, res) => {
-    const userId = req.params.userId
-    User.findById(userId)
-        .then((user) => {
-            res.render('workouts/new', {
-                user
-            })
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+    res.render('workouts/new')
 })
 
 // router.post('/', (req, res) => {
@@ -79,8 +70,12 @@ router.put('/:workoutId', (req, res) => {
 
     User.findByIdAndUpdate(userId)
     .then((user) => {
-        user.workoutsCreated.push(updatedWorkout)
-        
+        const workoutToEdit = user.workoutsCreated.id(workoutId)
+
+        workoutToEdit.workoutName = updatedWorkout.workoutName
+        workoutToEdit.goal = updatedWorkout.goal
+        workoutToEdit.notes = updatedWorkout.notes
+        return user.save()
         
     })
     .then(() => {
@@ -91,16 +86,21 @@ router.put('/:workoutId', (req, res) => {
     })
 })
 
-// router.get('/:workoutId/delete', (req, res) => {
-//     const workoutId = req.params.workoutId
-//     Workout.findByIdAndRemove(workoutId)
-//         .then(() => {
-//             res.redirect('/workouts')
-//         })
-//         .catch((error) => {
-//             console.log(error)
-//         })
-// })
+router.get('/:workoutId/delete', (req, res) => {
+    const workoutId = req.params.workoutId
+    const userId = req.params.userId
+    User.findById(userId)
+        .then((user) => {
+            const workout = user.workoutsCreated.id(workoutId).remove()
+            return user.save()
+        })
+        .then((user) => {
+            res.redirect(`/users/workouts`)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 
 

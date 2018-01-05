@@ -57,7 +57,21 @@ router.get('/workouts/:workoutId', (req, res) => {
       })
 })
 
+// router.get('/workouts/new', (req, res) => {
+//   res.render('workouts/new')
+// })
 
+// router.post('/', (req, res) => {
+//     const newWorkout = req.body
+
+//     Workout.create(newWorkout)
+//         .then(() => {
+//             res.redirect('/workouts')
+//         })
+//         .catch((error) => {
+//             console.log(error)
+//         })
+// })
 
 router.get('/:userId', (req, res) => {
   const userId = req.params.userId

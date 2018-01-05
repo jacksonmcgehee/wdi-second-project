@@ -3,7 +3,7 @@
     <h2>Make a New Workout</h2>
 </div>
 <div>
-    <form class="new-form"action='/workouts' method="POST">
+    <form class="new-form" action="/users/{{user._id}}" method="POST">
         <div>
             <div class="form-input">
                 <label for="workoutName">Name of the workout</label>
@@ -21,8 +21,8 @@
             </div>
 
             <div class="form-input">
-                <label for="description">Description</label>
-                <input type="text" name="description" />
+                <label for="notes">Notes</label>
+                <input type="text" name="notes" />
             </div>
         </div>
 

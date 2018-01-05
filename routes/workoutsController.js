@@ -15,16 +15,18 @@ const Workout = require('../db/models/Workout')
 //     })
 // })
 
-router.get('/new', (req, res) => {
-    res.render('workouts/new')
-})
-
 // router.post('/', (req, res) => {
+//     const workoutId = req.params.workoutId
+//     const userId = req.params.userId
 //     const newWorkout = req.body
 
-//     Workout.create(newWorkout)
+//     User.findById(userId)
+//         .then((user) => {
+//             user.workoutsCreated.push(newWorkout)
+//             return userId.save()
+//         })
 //         .then(() => {
-//             res.redirect('/workouts')
+//             res.redirect(`/users/${userId}/workouts`)
 //         })
 //         .catch((error) => {
 //             console.log(error)

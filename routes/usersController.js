@@ -3,7 +3,7 @@ const router = express.Router()
 const User = require('../db/models/User.js')
 const Workout = require('../db/models/Workout')
 
-
+// (Read) Users 'home' page
 router.get('/', (req, res) => {
   User.find({})
     .then((user) => {
@@ -16,10 +16,12 @@ router.get('/', (req, res) => {
     })
 })
 
+// (Read) Provide the add new user page
 router.get('/new', (req, res) => {
   res.render('users/new')
 })
 
+// (Create) Populate a new user based on app user input
 router.post('/', (req, res) => {
   const newUser = req.body
   
@@ -32,16 +34,7 @@ router.post('/', (req, res) => {
     })
 })
 
-// router.get('/:userId/newworkout', (req, res) => {
-//   const userId = req.params.userId
-//   User.findById(userId)
-//   .then((user) => {
-//     res.render('workouts/new', {
-//       user
-//     })
-//   })
-// })
-
+// (Read) Populate a page with all workouts from all users
 router.get('/workouts', (req, res) => {
   User.find({})
   .then((user) => {
@@ -54,22 +47,7 @@ router.get('/workouts', (req, res) => {
   })
 })
 
-
-
-
-
-// router.post('/', (req, res) => {
-//     const newWorkout = req.body
-
-//     Workout.create(newWorkout)
-//         .then(() => {
-//             res.redirect('/workouts')
-//         })
-//         .catch((error) => {
-//             console.log(error)
-//         })
-// })
-
+// (Read) Detailed view of an individual user
 router.get('/:userId', (req, res) => {
   const userId = req.params.userId
   
@@ -85,6 +63,7 @@ router.get('/:userId', (req, res) => {
     })
 })
 
+// (Read) Provide the page to edit individual user information
 router.get('/:userId/edit', (req, res) => {
   const userId = req.params.userId
 
@@ -99,6 +78,7 @@ router.get('/:userId/edit', (req, res) => {
     })
 })
 
+// (Update) Change the detailed user information based on app user input
 router.put('/:userId', (req, res) => {
   const userId = req.params.userId
   const updatedUserInfo = req.body
@@ -109,6 +89,7 @@ router.put('/:userId', (req, res) => {
     })
 })
 
+// (Destroy) Delete a specific user
 router.get('/:userId/delete', (req, res) => {
   const userId = req.params.userId
   User.findByIdAndRemove(userId)

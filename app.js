@@ -13,6 +13,7 @@ const mongoose = require('mongoose')
 const index = require('./routes/index')
 const usersController = require('./routes/usersController')
 const workoutsController = require('./routes/workoutsController')
+const componentsController = require('./routes/componentsController')
 
 const app = express()
 
@@ -52,6 +53,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', index)
 app.use('/users', usersController)
 app.use('/users/:userId/workouts', workoutsController)
+app.use('/users/:userId/workouts/:workoutId/components', componentsController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

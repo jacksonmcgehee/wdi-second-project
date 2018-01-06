@@ -1,37 +1,40 @@
 <div>
-    <a href="/"><h1>Fitbrary</h1></a>
-</div>
-
-<div>
-    <h1>{{workout.workoutName}}</h1>
-    <h2>Created by: {{user.userName}}</h2>
-    <h3>Workout goal: {{workout.goal}}</h3>
-    <h3>Workout notes: {{workout.notes}}</h3>
     <div>
-        <h3>Workout Components:</h3>
-        <ul>
-            {{#each workout.workoutComponent}}
-                <li> {{this.repetitions}} {{this.movement}} {{#if this.prescribed}}at {{this.prescribed}}{{/if}}</li>
-            {{/each}}
-        </ul>
+            <a href="/" class="main-nav-link"><h1 class="fitbrary">Fitbrary</h1></a>
     </div>
+    <div class="library-container show-container">
+        <div class="library-list show-list">
+            <h1 class="show-text show-header">{{workout.workoutName}}</h1>
+            <h2 class="show-text show-subhead">Created by: {{user.userName}}</h2>
+            <h3 class="show-text show-subhead">Workout goal: {{workout.goal}}</h3>
+            <h3 class="show-text show-subhead">Workout notes: {{workout.notes}}</h3>
+            <div>
+                <h3 class="show-text show-list-head">Workout Components:</h3>
+                <div class="sub-list">
+                    <ul>
+                        {{#each workout.workoutComponent}}
+                            <li> <h4 class="components">{{this.repetitions}} {{this.movement}} {{#if this.prescribed}}at {{this.prescribed}}{{/if}}</h3></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="button-container">
+            <form action="/users/{{user._id}}/workouts/{{workout._id}}/edit">
+                <input class="library-button" type="submit" value="Edit Workout Details" />
+            </form>
+            <form action="/users/{{user._id}}/workouts/{{workout._id}}/components">
+                <input class="library-button" type="submit" value="Edit Components" />
+            </form>
+        </div>
 
-
-    <div>
-        <form action="/users/{{user._id}}/workouts/{{workout._id}}/edit">
-            <input class="button" type="submit" value="Edit Workout Details" />
-        </form>
-        <form action="/users/{{user._id}}/workouts/{{workout._id}}/components">
-            <input class="button" type="submit" value="Edit Components" />
-        </form>
+        <div class="button-container">
+            <form action="/users/workouts">
+                <input class="library-button" type="submit" value="Workout Library" />
+            </form>
+            <form action="/users/{{user._id}}/workouts/{{workout._id}}/delete">
+                <input class="library-button" type="submit" value="Delete Workout" />
+            </form>
+        </div>
     </div>
-
-    <div>
-        <form action="/users/workouts">
-            <input class="button" type="submit" value="Workout Library" />
-        </form>
-        <form action="/users/{{user._id}}/workouts/{{workout._id}}/delete">
-            <input class="button" type="submit" value="Delete Workout" />
-        </form>
-    </div>
-</div>
+</div>    

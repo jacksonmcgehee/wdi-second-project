@@ -13,7 +13,7 @@
                 <div class="sub-list">
                     <ul>
                         {{#each workout.workoutComponent}}
-                            <li> <h4 class="components">{{this.repetitions}} {{this.movement}} {{#if this.prescribed}}at {{this.prescribed}}{{/if}}</h3></li>
+                            <li> <h3 class="components">{{this.repetitions}} {{this.movement}} {{#if this.prescribed}}at {{this.prescribed}}{{/if}}</h3></li>
                         {{/each}}
                     </ul>
                 </div>
@@ -33,7 +33,7 @@
                 <input class="library-button" type="submit" value="Workout Library" />
             </form>
             <form action="/users/{{user._id}}/workouts/{{workout._id}}/delete">
-                <input class="library-button" type="submit" value="Delete Workout" />
+                <input class="library-button delete" type="submit" value="Delete Workout" />
             </form>
         </div>
     </div>

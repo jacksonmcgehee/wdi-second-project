@@ -1,38 +1,42 @@
-<div>
-    <a href="/"><h1>Fitbrary</h1></a>
-    <h2>Create a New User Profile</h2>
-</div>    
+<div class="form-body">
     <div>
-        <form class="new-form"action='/users/{{user._id}}' method="POST">
-            <div class="form-input">
-                <label for="userName">User name</label>
-                <input type="text" name="userName" required/>
-            </div>
-
-            <div class="form-input">
-                <label for="firstName">First name</label>
-                <input type="text" name="firstName" required/>
-            </div>
-
-            <div class="form-input">
-                <label for="lastName">Last name</label>
-                <input type="text" name="lastName" required/>
-            </div>
-
-            
-
-            <div class="form-input">
-                <label for="email">Email</label>
-                <input type="text" name="email" />
-            </div>
-
-            <div class="">
-                <input class="button" type="submit" value="Create Profile">
-            </div>
-        </form>
+        <a href="/" class="main-nav-link"><h1 class="fitbrary">Fitbrary</h1></a>
     </div>
-    <div>
-        <form action="/users">
-            <input class="button" type="submit" value="Cancel" />
-        </form>
+    <div class="library-container">
+        <h2 class="sub-head">Create a New User Profile</h2>
+        <div class="full-form">
+            <form class="new-form"action='/users/{{user._id}}' method="POST">
+                <div class="form-input">
+                    <label for="userName" class="form-text">User name</label>
+                    <input type="text" name="userName" required/>
+                </div>
+
+                <div class="form-input">
+                    <label for="firstName" class="form-text">First name</label>
+                    <input type="text" name="firstName" required/>
+                </div>
+
+                <div class="form-input">
+                    <label for="lastName" class="form-text">Last name</label>
+                    <input type="text" name="lastName" required/>
+                </div>
+
+                
+
+                <div class="form-input">
+                    <label for="email" class="form-text">Email</label>
+                    <input type="text" name="email" />
+                </div>
+
+                <div class="">
+                    <input class="library-button" type="submit" value="Create Profile">
+                </div>
+            </form>
+        </div>
+        <div class="button-container">
+            <form action="/users">
+                <input class="library-button" type="submit" value="Cancel" />
+            </form>
+        </div>
     </div>
+</div>

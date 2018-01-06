@@ -1,35 +1,38 @@
-<div>
-    <a href="/"><h1>Fitbrary</h1></a>
-    <h2>{{user.userName}}, make a new workout</h2>
-
-</div>
-<div>
-    <form class="new-form" action="/users/{{user._id}}/workouts" method="POST">
-        <div>
-            <div class="form-input">
-                <label for="workoutName">Name of the workout</label>
-                <input type="text" name="workoutName" required/>
-            </div>
-
-            <div class="form-input">
-                <label for="goal">Workout Goal</label>
-                <input type="text" name="goal" required/>
-            </div>
-
-            <div class="form-input">
-                <label for="notes">Notes</label>
-                <input type="text" name="notes" />
-            </div>
-        </div>
-
-        <div class="">
-            <input class="button" type="submit" value="Create">
-            
-        </div>
-    </form>
+<div class="form-body">
     <div>
-        <form action="/users/{{user._id}}">
-            <input class="button" type="submit" value="Cancel" />
-        </form>
+        <a href="/" class="main-nav-link"><h1 class="fitbrary">Fitbrary</h1></a>
+    </div>
+
+    <div class="library-container">
+        <h2 class="sub-head">{{user.userName}}, make a new workout</h2>
+        <div class="full-form">
+            <form class="new-form" action="/users/{{user._id}}/workouts" method="POST">
+                <div>
+                    <div class="form-input">
+                        <label for="workoutName" class="form-text">Name of the workout</label>
+                        <input type="text" name="workoutName" required/>
+                    </div>
+
+                    <div class="form-input">
+                        <label for="goal" class="form-text">Workout Goal</label>
+                        <input type="text" name="goal" required/>
+                    </div>
+
+                    <div class="form-input">
+                        <label for="notes" class="form-text">Notes</label>
+                        <input type="text" name="notes" />
+                    </div>
+                </div>
+
+                <div class="form-button-container">
+                    <input class="library-button" type="submit" value="Create">
+                </div>
+            </form>
+        </div>
+        <div class="button-container">
+            <form action="/users/{{user._id}}">
+                <input class="library-button" type="submit" value="Cancel" />
+            </form>
+        </div>
     </div>
 </div>

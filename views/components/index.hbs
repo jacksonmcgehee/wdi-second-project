@@ -1,37 +1,45 @@
-<div>
-    <a href="/"><h1>Fitbrary</h1></a>
-    <h1>Components for {{workout.workoutName}}</h1>
-</div>
-<div>
-    <ul>
-        {{#each workout.workoutComponent}}
-            <li> {{this.repetitions}} {{this.movement}} {{#if this.prescribed}}at {{this.prescribed}}{{/if}}</li>
-            <a href="/users/{{../user._id}}/workouts/{{../workout._id}}/components/{{this._id}}/delete">Delete this component</a>
-        {{/each}}
-    </ul>
-</div>
+<div class="form-body">
+    <div>
+        <a href="/" class="main-nav-link"><h1 class="fitbrary">Fitbrary</h1></a>
+    </div>
 
-<div class="form-input">
-    <form class="new-form"action='/users/{{user._id}}/workouts/{{workout._id}}/components' method="POST">
-    <div>
-        <label for="repetitions">Repetitions</label>
-        <input type="text" name="repetitions" required/>
-    </div>
-    <div>
-        <label for="movement">Movement</label>
-        <input type="text" name="movement" required/>
-    </div>
-    <div>
-        <label for="prescribed">Recommended weight</label>
-        <input type="text" name="prescribed" />
-    </div>
-    <div>
-        <input class="button" type="submit" value="Add Component">
-    </div>
-    </form>
-    <div>
-        <form action="/users/{{user._id}}/workouts/{{workout._id}}">
-            <input class="button" type="submit" value="Go back to {{workout.workoutName}}" />
-        </form>
+    <div class="library-container">
+        <h1 class="sub-head">Components for {{workout.workoutName}}</h1>
+        <div class="library-list show-list">
+            <ul>
+                {{#each workout.workoutComponent}}
+                    <li> <h3 class="components">{{this.repetitions}} {{this.movement}} {{#if this.prescribed}}at {{this.prescribed}}{{/if}}</h3></li>
+                    <a href="/users/{{../user._id}}/workouts/{{../workout._id}}/components/{{this._id}}/delete" class="delete-link">Delete this component</a>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="component-form">
+            <div class="full-form">
+                <form class="new-form"action='/users/{{user._id}}/workouts/{{workout._id}}/components' method="POST">
+                    <div>
+                        <div class="form-input">
+                            <label for="repetitions">Repetitions</label>
+                            <input type="text" name="repetitions" required/>
+                        </div >
+                        <div class="form-input">
+                            <label for="movement">Movement</label>
+                            <input type="text" name="movement" required/>
+                        </div>
+                        <div class="form-input">
+                            <label for="prescribed">Recommended weight</label>
+                            <input type="text" name="prescribed" />
+                        </div>
+                    </div>
+                    <div>
+                        <input class="library-button" type="submit" value="Add Component">
+                    </div>
+                </form>
+            </div>
+            <div class="button-container">
+                <form action="/users/{{user._id}}/workouts/{{workout._id}}">
+                    <input class="library-button" type="submit" value="Back to Workout" />
+                </form>
+            </div>
+        </div>
     </div>
 </div>

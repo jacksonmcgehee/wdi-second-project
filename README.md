@@ -15,7 +15,8 @@
   - [Click here](https://trello.com/b/Nrv3JwgO/fitbrary) to see my Trello Board that contains my user story management
   - [Click here](https://www.figma.com/file/dR33Iiy9i6t6NPAAYoD9VfCp/Fitbrary) to see the original mock-up of my project
   - Technologies and libraries I used:
-    - I used Node.js with Express, MongoDB, Mongoose, Handlebars and all of the dependencies that each of those packages have
+    - I used **Node.js with Express, MongoDB, Mongoose, Handlebars** and all of the dependencies that each of those packages have
+    - I drew the picture on the homepage with **Adobe Illustrator**
   - In Version 2, I would like to add:
     - Authentication and permissions
     - Comments for the workouts (to futher allow collaboration for workout ideas)

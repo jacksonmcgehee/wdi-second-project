@@ -15,16 +15,15 @@
   - [Click here](https://trello.com/b/Nrv3JwgO/fitbrary) to see my Trello Board that contains my user story management
   - [Click here](https://www.figma.com/file/dR33Iiy9i6t6NPAAYoD9VfCp/Fitbrary) to see the original mock-up of my project
   - Technologies and libraries I used:
-    - 
-    - 
-    - 
+    - I used Node.js with Express, MongoDB, Mongoose, Handlebars and all of the dependencies that each of those packages have
   - In Version 2, I would like to add:
-    - 
-    - 
-    - 
-    - 
+    - Authentication and permissions
+    - Comments for the workouts (to futher allow collaboration for workout ideas)
+    - Links to resources online for instructions on the movements
+    - Tags so app users can search for workouts based on movements or components (likely will require a relational DB)
 
   - Major takeaways:
-    - ** **; 
-    - ** **; 
+    - **Previous mistakes helped**; I made sure to read all of my takeaways from the last project (which is why I kept it to three), and keep them in mind as I worked through this project. My CSS is much, much cleaner (but still has room for improvement), and my development process went much better because I used my Trello board more effectively. I also had twice as many commits and branches as my first project. My Trello board and proactive use of git supplemented one another very well and helped me stay focused. 
+    - **Mobile First is Hard**; I began the project thinking mobile first, but I kept getting off track. I kept getting distracted by different devices and browser quirks (i.e. why are my buttons different in Safari mobile?!?!). I need to focus on MVP and icebox the quirks. 
+    - **Set Intermediate Project Goals**; I did much better following my user stories and using git. But, I know I can make it better by setting intermediate goals for myself. I had a little more than 20 user stories in my initial plan. I color coded them by CRUD function and data model. I should have better used that structure to guide my development. An example of an intermediate goal would be to finish all read routes from the CRUD functionality before moving on to other user stories. Or group is by data model: finish full CRUD on users before moving to other user stories.
     

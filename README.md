@@ -18,6 +18,7 @@
     - I used **Node.js with Express, MongoDB, Mongoose, Handlebars** and all of the dependencies that each of those packages have
     - I drew the picture on the homepage with **Adobe Illustrator**
   - In Version 2, I would like to add:
+    - Add modals for the delete function and component adding
     - Authentication and permissions
     - Comments for the workouts (to futher allow collaboration for workout ideas)
     - Links to resources online for instructions on the movements

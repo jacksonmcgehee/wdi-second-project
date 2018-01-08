@@ -205,6 +205,9 @@ input {
     width: 375px;
     outline: none;
     background-color: #C4C4C4;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
 }
 
 .delete-link {

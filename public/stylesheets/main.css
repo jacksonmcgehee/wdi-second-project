@@ -253,10 +253,6 @@ input {
     .home-container {
         justify-content: flex-start;
     }
-
-    .fitbrary-container {
-        border: 1px solid black;
-    }
 }
 
 @media only screen and (max-width: 420px) {

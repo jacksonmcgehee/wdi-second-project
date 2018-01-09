@@ -228,8 +228,34 @@ input {
     }
 
     .button {
-        width: 375px;
-        height: 75px
+        width: 300px;
+        height: 75px;
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .main-container {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .handf {
+        height: 40vh;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .fitbrary-main {
+        font-size: 50px;
+    }
+
+    .home-container {
+        justify-content: flex-start;
+    }
+
+    .fitbrary-container {
+        border: 1px solid black;
     }
 }
 
@@ -237,6 +263,7 @@ input {
    
     .main-container {
         flex-direction: column;
+        justify-content: space-between;
     }
     .fitbrary-main {
         margin-top: 15px;
@@ -245,10 +272,6 @@ input {
     .button {
         width: 300px;
         font-size: 35px;
-    }
-
-    .main-container {
-        justify-content: space-between;
     }
 
     .fitbrary {
